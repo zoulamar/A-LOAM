@@ -1,0 +1,26 @@
+<launch>
+	<arg name="cloud"/>
+	<arg name="pose"/>
+	<arg name="frame_name"	default="/map"/>
+	<arg name="skipstep" default="10"/>
+	<arg name="skiphead" default="11"/>
+	<arg name="radius" default="10000"/>
+	<arg name="loc_pcds"	default="/os_cloud_node/points"/>
+	
+	<node name="cloud_loader" pkg="mzutils" type="mzutils_cloud_loader" output="screen" >
+		<param name="frame_name" value="/map" />
+		<param name="file_skipstep"  value="$(arg skipstep)" />
+		<param name="file_head_lines"  value="$(arg skiphead)" />
+		<param name="file_name" value="$(arg cloud)" />
+		
+		<param name="cloud_cut_around_radius"  value="$(arg radius)" />
+		<param name="odom_enable"  value="true" />
+		<param name="tf_enable"  value="false" />
+		<param name="odom_from_file"  value="true" />
+		<param name="odom_file_name"  value="$(arg pose)" />
+		<param name="odom_child_frame_name"  value="/map" />
+		
+		<remap from="cloud" to="/os_cloud_node"/>
+		<remap from="odom" to="/force_pose"/>
+	</node>
+</launch>

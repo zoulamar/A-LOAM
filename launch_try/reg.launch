@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="aloam_velodyne" type="ascanRegistration" name="ascanRegistration" output="screen" >
+      <remap from="/velodyne_points" to="/os_cloud_node/points" />
+    </node>
+</launch>

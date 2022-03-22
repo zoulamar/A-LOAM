@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="aloam_velodyne" type="alaserMapping" name="alaserMapping" output="screen" />
+  <!--<remap from="force_pose" 					to="/force_pose"/>-->
+</launch>

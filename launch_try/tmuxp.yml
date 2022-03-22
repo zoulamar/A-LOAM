@@ -1,0 +1,12 @@
+session_name: aloam
+windows:
+  - window_name: main
+    focus: true
+    layout: tiled
+    panes:
+      - roslaunch aloam_velodyne cmn.launch
+      - roslaunch --wait aloam_velodyne reg.launch
+      - roslaunch --wait aloam_velodyne odo.launch
+      - roslaunch --wait aloam_velodyne map.launch
+      - rosbag play --clock --pause /home/zoulamar/dupl/2021-08-06-14-02-03.bag
+        #- bash ./load_by_args.sh /comrob-ds/data/hexapod/2021_08_06_Dobrosov_scans/e57/Dobrosov-Setup1.pxyz #{1,2,3,4,5,6}.pxyz

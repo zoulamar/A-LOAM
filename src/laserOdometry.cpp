@@ -74,6 +74,8 @@ double timeSurfPointsFlat = 0;
 double timeSurfPointsLessFlat = 0;
 double timeLaserCloudFullRes = 0;
 
+std::string force_map_frame_id, force_sensor_frame_id, force_odom_frame_id;
+
 pcl::KdTreeFLANN<pcl::PointXYZI>::Ptr kdtreeCornerLast(new pcl::KdTreeFLANN<pcl::PointXYZI>());
 pcl::KdTreeFLANN<pcl::PointXYZI>::Ptr kdtreeSurfLast(new pcl::KdTreeFLANN<pcl::PointXYZI>());
 
@@ -189,6 +191,9 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
 
     nh.param<int>("mapping_skip_frame", skipFrameNum, 2);
+    nh.param<int>("force_sensor_frame_id", force_sensor_frame_id, "/camera");
+    nh.param<int>("force_odom_frame_id", force_odom_frame_id, "/laser_odom");
+    nh.param<int>("force_map_frame_id", force_map_frame_id, "/camera_init");
 
     printf("Mapping %d Hz \n", 10 / skipFrameNum);
 

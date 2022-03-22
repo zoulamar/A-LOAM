@@ -31,7 +31,7 @@ include_directories(
   ${OpenCV_INCLUDE_DIRS})
 
 catkin_package(
-  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs
+  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs mzutils
   DEPENDS EIGEN3 PCL 
   INCLUDE_DIRS include
 )

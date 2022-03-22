@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="aloam_velodyne" type="alaserOdometry" name="alaserOdometry" output="screen">
+  </node>
+</launch>
